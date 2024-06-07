@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "django-channels-prometheus"
+version = "0.1.0"
+description = "Very simple package that enables a Prometheus endpoint, to check how many websocket connections are currently open."
+authors = ["Frederich Pedersen <frodo@hobbits.dk>"]
+readme = "README.md"
+
+packages      = [
+    { include = "channels_prometheus" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+channels = "^4.1.0"
+
+[tool.poetry.group.test.dependencies]
+tox = "^4.15.1"
+pytest = "*"
+pytest-django = "^4.8.0"
+pytest-asyncio = "*"
+
+[tool.poetry.extras]
+test = ["pytest"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
