@@ -15,3 +15,5 @@ class TestConsumer(PrometheusWebsocket):
 
     def disconnect(self, close_code):
         pass
+
+TestConsumer.__test__ = False
