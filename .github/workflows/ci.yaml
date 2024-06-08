@@ -78,7 +78,7 @@ jobs:
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-  
+
   pypi-publish:
     name: Upload release to PyPI
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
