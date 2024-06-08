@@ -2,9 +2,22 @@
 name = "django-channels-prometheus"
 version = "0.1.0"
 description = "Very simple package that enables a Prometheus endpoint, to check how many websocket connections are currently open."
+license = "MIT"
 authors = ["Frederich Pedersen <frodo@hobbits.dk>"]
+repository = "https://github.com/Frodothedwarf/django-channels-prometheus"
+keywords = ["prometheus","channels","webhook","webhooks","django"]
+classifiers   = [
+    'Development Status :: 3 - Alpha',
+    'Framework :: Django',
+    'Framework :: Django :: 4.0',
+    'Framework :: Django :: 4.1',
+    'Framework :: Django :: 4.2',
+    'Framework :: Django :: 5.0',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+]
 readme = "README.md"
-
 packages      = [
     { include = "channels_prometheus" },
 ]
@@ -13,6 +26,9 @@ packages      = [
 python = "^3.8"
 django = "^4.2"
 channels = "^4.1.0"
+
+[tool.poetry.group.test]
+optional = true
 
 [tool.poetry.group.test.dependencies]
 tox = "^4.15.1"
