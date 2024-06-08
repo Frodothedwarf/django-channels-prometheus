@@ -1,6 +1,6 @@
 [![CI](https://github.com/Frodothedwarf/django-channels-prometheus/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Frodothedwarf/django-channels-prometheus/actions/workflows/ci.yaml)
 
-# Django Channels Prometheus    
+# Django Channels Prometheus
 
 This project was created with the simplest problem in mind, know how many devices are connected to a websocket, and export that metric to a Prometheus endpoint. Currently the only feature this project has is counting the numbers of open connections to a given websocket inside Django Channels.
 
