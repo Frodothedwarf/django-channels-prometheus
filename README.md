@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/Frodothedwarf/django-channels-prometheus/branch/main/graph/badge.svg?token=UDYMWPIGRR)](https://codecov.io/gh/Frodothedwarf/django-channels-prometheus) [![CI](https://github.com/Frodothedwarf/django-channels-prometheus/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Frodothedwarf/django-channels-prometheus/actions/workflows/ci.yaml)
+[![PyPI version](https://badge.fury.io/py/django-channels-prometheus.svg)](https://badge.fury.io/py/django-channels-prometheus) [![CI](https://github.com/Frodothedwarf/django-channels-prometheus/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Frodothedwarf/django-channels-prometheus/actions/workflows/ci.yaml) [![codecov](https://codecov.io/gh/Frodothedwarf/django-channels-prometheus/branch/main/graph/badge.svg?token=UDYMWPIGRR)](https://codecov.io/gh/Frodothedwarf/django-channels-prometheus)
 
 # Django Channels Prometheus
 
