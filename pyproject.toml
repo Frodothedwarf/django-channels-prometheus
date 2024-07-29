@@ -32,6 +32,8 @@ optional = true
 
 [tool.poetry.group.test.dependencies]
 tox = "^4.15.1"
+wheel = "*"
+setuptools = "*"
 pytest = "*"
 pytest-django = "^4.8.0"
 pytest-asyncio = "*"
