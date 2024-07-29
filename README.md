@@ -115,6 +115,7 @@ When all of that is configured you will be able to find your endpoint metrics at
 
 * Create documentation
 * Seperate different consumers to their own metrics.
+* Known issue if the websockets are running on more than one worker, it will give inconsistent results.
 
 ## Contributing
 
