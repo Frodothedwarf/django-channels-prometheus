@@ -25,7 +25,6 @@ packages      = [
 [tool.poetry.dependencies]
 python = "^3.8"
 channels = "*"
-django = "*"
 
 [tool.poetry.group.test]
 optional = true
