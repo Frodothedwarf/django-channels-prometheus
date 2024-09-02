@@ -111,6 +111,21 @@ application = ProtocolTypeRouter(
 
 When all of that is configured you will be able to find your endpoint metrics at the defined url route.
 
+## Important
+If you need to handle an exception inside your consumers and wants to close the socket, close the connection with the following:
+
+```
+self.websocket_disconnect({"code": 1011})
+```
+
+And for the async version, call:
+
+```
+await self.websocket_disconnect({"code": 1011})
+```
+
+If not called this way, you will run into a problem where the counter stops counting correctly.
+
 ## TODO
 
 * Create documentation

@@ -90,7 +90,6 @@ class TestChannelsPrometheus(TestCase):
 
         client = Client()
         response = client.get("/metrics/")
-        print(response.content)
         self.assertContains(response, "0.0")
 
         await self.websocketCommunicator1.disconnect()
