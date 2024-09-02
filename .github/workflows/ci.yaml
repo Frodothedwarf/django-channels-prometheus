@@ -45,6 +45,7 @@ jobs:
           - "django-41"
           - "django-42"
           - "django-50"
+          - "django-51"
 
         exclude:
           - python-version: "3.11"
@@ -57,6 +58,10 @@ jobs:
             tox-env: "django-50"
           - python-version: "3.9"
             tox-env: "django-50"
+          - python-version: "3.8"
+            tox-env: "django-51"
+          - python-version: "3.9"
+            tox-env: "django-51"
 
     steps:
       - uses: actions/checkout@v2
