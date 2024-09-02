@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-channels-prometheus"
-version = "0.0.1"
+version = "0.0.2"
 description = "Very simple package that enables a Prometheus endpoint, to check how many websocket connections are currently open."
 license = "MIT"
 authors = ["Frederich Pedersen <frodo@hobbits.dk>"]
