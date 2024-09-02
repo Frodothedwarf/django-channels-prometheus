@@ -24,8 +24,8 @@ packages      = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-django = "^4.2"
-channels = "^4.1.0"
+channels = "*"
+django = "*"
 
 [tool.poetry.group.test]
 optional = true
@@ -46,3 +46,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.settings"
+asyncio_default_fixture_loop_scope = "class"

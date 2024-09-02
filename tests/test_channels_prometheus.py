@@ -2,7 +2,7 @@ import pytest
 from channels.testing import WebsocketCommunicator
 from django.test import Client, TestCase
 
-from .consumers import AsyncTestConsumer, TestConsumer
+from .consumers import AsyncTestConsumer, AsyncTestExceptionConsumer, TestConsumer
 
 
 class TestChannelsPrometheus(TestCase):
@@ -70,6 +70,33 @@ class TestChannelsPrometheus(TestCase):
         await self.websocketCommunicator9.disconnect()
 
     @pytest.mark.asyncio
+    async def test_websocket_counter_fail(self):
+        self.websocketCommunicator1 = WebsocketCommunicator(
+            AsyncTestExceptionConsumer.as_asgi(), "/ws/test/fail/"
+        )
+        self.websocketCommunicator2 = WebsocketCommunicator(
+            AsyncTestExceptionConsumer.as_asgi(), "/ws/test/fail/"
+        )
+        self.websocketCommunicator3 = WebsocketCommunicator(
+            AsyncTestExceptionConsumer.as_asgi(), "/ws/test/fail/"
+        )
+        try:
+            await self.websocketCommunicator1.connect()
+            await self.websocketCommunicator2.connect()
+            await self.websocketCommunicator3.connect()
+        except:
+            pass
+
+        client  = Client()
+        response = client.get("/metrics/")
+        print(response.content)
+        self.assertContains(response, "0.0")
+
+        await self.websocketCommunicator1.disconnect()
+        await self.websocketCommunicator2.disconnect()
+        await self.websocketCommunicator3.disconnect()
+
+    @pytest.mark.asyncio
     async def test_websocket_connection(self):
         self.websocketCommunicator1 = WebsocketCommunicator(
             TestConsumer.as_asgi(), "/ws/test/"
@@ -115,4 +142,4 @@ class TestChannelsPrometheus(TestCase):
         await self.websocketCommunicator3.disconnect()
         await self.websocketCommunicator4.disconnect()
         await self.websocketCommunicator5.disconnect()
-        await self.websocketCommunicator6.disconnect()
+        await self.websocketCommunicator6.disconnect() 
