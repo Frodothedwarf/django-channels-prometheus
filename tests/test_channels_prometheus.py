@@ -80,14 +80,15 @@ class TestChannelsPrometheus(TestCase):
         self.websocketCommunicator3 = WebsocketCommunicator(
             AsyncTestExceptionConsumer.as_asgi(), "/ws/test/fail/"
         )
+
         try:
             await self.websocketCommunicator1.connect()
             await self.websocketCommunicator2.connect()
             await self.websocketCommunicator3.connect()
-        except:
+        except Exception:
             pass
 
-        client  = Client()
+        client = Client()
         response = client.get("/metrics/")
         print(response.content)
         self.assertContains(response, "0.0")
@@ -142,4 +143,4 @@ class TestChannelsPrometheus(TestCase):
         await self.websocketCommunicator3.disconnect()
         await self.websocketCommunicator4.disconnect()
         await self.websocketCommunicator5.disconnect()
-        await self.websocketCommunicator6.disconnect() 
+        await self.websocketCommunicator6.disconnect()

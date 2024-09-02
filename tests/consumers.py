@@ -8,17 +8,18 @@ class AsyncTestConsumer(AsyncPrometheusWebsocket):
     async def disconnect(self, close_code):
         pass
 
+
 class AsyncTestExceptionConsumer(AsyncPrometheusWebsocket):
     async def connect(self):
         await self.accept()
         try:
             raise Exception("Test")
-        except:
-            await self.websocket_disconnect({"code":1011})
-        
+        except Exception:
+            await self.websocket_disconnect({"code": 1011})
 
     async def disconnect(self, close_code):
         pass
+
 
 class TestConsumer(PrometheusWebsocket):
     def connect(self):
