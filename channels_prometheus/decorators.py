@@ -1,5 +1,6 @@
 from . import openConnections
 
+
 def ensure_prometheus_connect_async(cls):
     """
     Async decorator to Django Channels that wants to enable the count of open connections.
@@ -28,6 +29,7 @@ def ensure_prometheus_connect_async(cls):
     cls.connect = new_connect
     cls.disconnect = new_disconnect
     return cls
+
 
 # Exactly the same as above, just sync
 def ensure_prometheus_connect(cls):

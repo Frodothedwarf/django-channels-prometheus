@@ -1,5 +1,6 @@
 from channels.testing import WebsocketCommunicator
 
+
 def websocket_creator(consumer, url, count=1):
     """
     Helper function to tests to create a bunch of websockets and return them in a list.
@@ -8,13 +9,10 @@ def websocket_creator(consumer, url, count=1):
     websockets = []
 
     for x in range(count):
-        websockets.append(
-            WebsocketCommunicator(
-                consumer.as_asgi(), url
-            )
-        )
-        
+        websockets.append(WebsocketCommunicator(consumer.as_asgi(), url))
+
     return websockets
+
 
 async def websocket_connector(websockets, connect):
     """

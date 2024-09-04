@@ -1,8 +1,15 @@
 import pytest
-from django.test import Client, TestCase
-from .consumers_sync import TestConsumer, TestConsumerWithoutDisconnect, TestExceptionConsumer, TestExceptionBeforeAcceptConsumer
-from .test_helpers import websocket_creator, websocket_connector
 from channels.testing import WebsocketCommunicator
+from django.test import Client, TestCase
+
+from .consumers_sync import (
+    TestConsumer,
+    TestConsumerWithoutDisconnect,
+    TestExceptionBeforeAcceptConsumer,
+    TestExceptionConsumer,
+)
+from .test_helpers import websocket_connector, websocket_creator
+
 
 class TestSyncWebSocketConsumer(TestCase):
     @pytest.mark.asyncio
@@ -55,7 +62,9 @@ class TestSyncWebSocketConsumer(TestCase):
 
     @pytest.mark.asyncio
     async def test_websocket_counter_before_accept_fail(self):
-        websockets = websocket_creator(TestExceptionBeforeAcceptConsumer, "/ws/test/fail/", 5)
+        websockets = websocket_creator(
+            TestExceptionBeforeAcceptConsumer, "/ws/test/fail/", 5
+        )
 
         # Connect and disconnect is done this way due to the websocket protocol is demanding it to be.
         # Server send close, client acknowledges it and sends goodbye
